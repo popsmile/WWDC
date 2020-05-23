@@ -2,7 +2,7 @@
 
 A unified, declarative API for **processing values over time**.
 
-
+<br>
 
 ### Features
 
@@ -11,15 +11,15 @@ A unified, declarative API for **processing values over time**.
 - Composition first
 - Request driven
 
-
+<br>
 
 ### Key Concepts
 
-- <a href="#📌-Publisher">Publishers</a>
-- <a href="#📌-Subscriber">Subscribers</a>
-- <a href="#📌-Operator">Operators</a>
+- <a href="#-Publisher">Publishers</a>
+- <a href="#-Subscriber">Subscribers</a>
+- <a href="#-Operator">Operators</a>
 
-
+<br>
 
 ## 📌 Publisher
 
@@ -50,7 +50,7 @@ extension NotificationCenter {
 }
 ```
 
-
+<br>
 
 ## 📌 Subscriber
 
@@ -81,7 +81,7 @@ extension Subscribers {
 }
 ```
 
-
+<br>
 
 ## Pattern
 
@@ -91,7 +91,7 @@ extension Subscribers {
 4. `Publisher` sends *N* values or less
 5. `Publisher` sends completion
 
-![Introducing Combine 5](./images/Introducing Combine 5.png)
+![Introducing Combine 5](./images/Introducing_Combine_5.png)
 
 
 
@@ -110,7 +110,7 @@ let graduationPublisher = NotificationCenter.Publisher(center: .default, name: .
 let graduationSubscriber = Subscribers.Assign(object: merlin, keyPath: \.grade)
 ```
 
-![Introducing Combine 1](./images/Introducing Combine 1.png)
+![Introducing Combine 1](./images/Introducing_Combine_1.png)
 
 ##### 🚫 Complie Error 
 
@@ -118,13 +118,13 @@ let graduationSubscriber = Subscribers.Assign(object: merlin, keyPath: \.grade)
   - Output: Notification
   - Input: Int
 
-![Introducing Combine 2](./images/Introducing Combine 2.png)
+![Introducing Combine 2](./images/Introducing_Combine_2.png)
 
 ##### 🔄 How to Fix
 
 - Something in the middle to **convert** between notifications and integers.
 
-
+<br>
 
 ## 📌 Operator
 
@@ -149,7 +149,7 @@ extension Publishers {
 }
 ```
 
-![Introducing Combine 3](./images/Introducing Combine 3.png)
+![Introducing Combine 3](./images/Introducing_Combine_3.png)
 
 ```swift
 extension Publisher {
@@ -172,7 +172,7 @@ let cancellable = NotificationCenter.default.publisher(for: .graduated, object: 
 - Once received a notification, it then map the notification as an integer.
 - Then it can be assigned to the grade property on Merlin. 
 
-
+<br>
 
 ### Declarative Operator API
 
@@ -182,7 +182,7 @@ let cancellable = NotificationCenter.default.publisher(for: .graduated, object: 
 - Thread or queue movement
 - Scheduling and time
 
-![Introducing Combine 4](./images/Introducing Combine 4.png)
+![Introducing Combine 4](./images/Introducing_Combine_4.png)
 
 ```swift
 let cancellable = NotificationCenter.default.publisher(for: .graduated, object: merlin)
@@ -194,14 +194,14 @@ let cancellable = NotificationCenter.default.publisher(for: .graduated, object: 
 	.assign(to: \.grade, on: merlin)
 ```
 
-
+<br>
 
 ### Combining Publishers
 
 - Zip
 - CombineLatest
 
-
+<br>
 
 ##### Zip
 
@@ -211,9 +211,9 @@ In the app before the user is allowed to continue, three **long-running asynchro
 - A "when/and" operation
 - Requires input from all to proceed
 
-![Introducing Combine 6](./images/Introducing Combine 6.png)
+![Introducing Combine 6](./images/Introducing_Combine_6.png)
 
-
+<br>
 
 ##### Combine Latest
 
@@ -222,4 +222,4 @@ In the app before the user is allowed to continue, three **long-running asynchro
 - Requires input from any to proceed
 - Stores last value
 
-![Introducing Combine 7](./images/Introducing Combine 7.png)
+![Introducing Combine 7](./images/Introducing_Combine_7.png)
