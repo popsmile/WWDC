@@ -43,7 +43,7 @@ protocol Publisher {
 ```swift
 extension NotificationCenter {
   struct Publisher: Combine.Publisher {
-		typealias Output = Notification
+    typealias Output = Notification
     typealias Failure = Never
     init(center: NotificationCenter, name: Notification.Name, object: Any? = nil)
   }
@@ -59,7 +59,7 @@ extension NotificationCenter {
 
 ```swift
 protocol Subscriber {
-	associatedtype Input
+  associatedtype Input
   associatedtype Failure: Error
   
   func receive(subscription: Subscription)
@@ -162,7 +162,7 @@ extension Publisher {
 ```swift
 let cancellable = NotificationCenter.default.publisher(for: .graduated, object: merlin)
 	.map { note in
-		return note.userInfo?["NewGrade"] as? Int ?? 0
+	   return note.userInfo?["NewGrade"] as? Int ?? 0
 	}
 	.assign(to: \.grade, on: merlin)
 ```
@@ -187,8 +187,8 @@ let cancellable = NotificationCenter.default.publisher(for: .graduated, object: 
 ```swift
 let cancellable = NotificationCenter.default.publisher(for: .graduated, object: merlin)
 	.compactMap { note in
-  	return note.userInfo["NewGrade"] as? Int 
-  }
+  	   return note.userInfo["NewGrade"] as? Int 
+  	}
 	.filter { $0 >= 5 }
 	.prefix(3)
 	.assign(to: \.grade, on: merlin)
