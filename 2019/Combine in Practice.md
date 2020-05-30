@@ -1,6 +1,6 @@
 # Combine in Practice
 
-🎬 WWDC 2019 [[Video]][https://developer.apple.com/videos/play/wwdc2019/721/]
+🎬 WWDC 2019 <a href="https://developer.apple.com/videos/play/wwdc2019/721/">[Video]</a> 
 
 <br>
 
@@ -30,15 +30,15 @@ let trickNamePublisher = Notification.default.publisher(for. newTrickDownloaded)
 - Use operators to react/recover from errors
 
 - Failure Handling Operators
-  - assertNoFailure [[docs]][https://developer.apple.com/documentation/combine/publisher/3204686-assertnofailure]
+  - assertNoFailure <a href="https://developer.apple.com/documentation/combine/publisher/3204686-assertnofailure">[docs]</a>
     - assert that failure can never hanppen
     - if an error happens, app will crash
-  - retry [[docs]][https://developer.apple.com/documentation/combine/publisher/3204751-retry]
-  - **catch** [[docs]][https://developer.apple.com/documentation/combine/publisher/3204690-catch]
+  - retry <a href="https://developer.apple.com/documentation/combine/publisher/3204751-retry">[docs]</a>
+  - **catch** <a href="https://developer.apple.com/documentation/combine/publisher/3204690-catch">[docs]</a>
     - call recovery closure which will produce a new Publisher
     - but, once we switch to the recovery pulisher, we're never going to receive value from the previous publisher.
-  - mapError [[docs]][https://developer.apple.com/documentation/combine/publisher/3204719-maperror]
-  - setFailureType [[docs]][https://developer.apple.com/documentation/combine/publisher/3204753-setfailuretype]
+  - mapError <a href="https://developer.apple.com/documentation/combine/publisher/3204719-maperror">[docs]</a>
+  - setFailureType <a href="https://developer.apple.com/documentation/combine/publisher/3204753-setfailuretype">[docs]</a>
 
 ### Flat Map
 
@@ -60,11 +60,11 @@ Using the nested scope for the flapMap operator, we will return, we will decode,
 
 Scheduled operators help us describe **when and where a particular event is delivered**.
 
-- delay [[docs]][https://developer.apple.com/documentation/combine/publisher/3204704-delay]
-- **debounce** [[docs]][https://developer.apple.com/documentation/combine/publisher/3204702-debounce]
-- throttle [[docs]][https://developer.apple.com/documentation/combine/publisher/3204760-throttle]
-- **receive(on:)** [[docs]][https://developer.apple.com/documentation/combine/publisher/3204743-receive]
-- subscribe(on:) [[docs]][https://developer.apple.com/documentation/combine/publisher/3204758-subscribe]
+- delay <a href="https://developer.apple.com/documentation/combine/publisher/3204704-delay">[docs]</a>
+- **debounce** <a href="https://developer.apple.com/documentation/combine/publisher/3204702-debounce">[docs]</a>
+- throttle <a href="https://developer.apple.com/documentation/combine/publisher/3204760-throttle">[docs]</a>
+- **receive(on:)** <a href="https://developer.apple.com/documentation/combine/publisher/3204743-receive">[docs]</a>
+- subscribe(on:) <a href="https://developer.apple.com/documentation/combine/publisher/3204758-subscribe">[docs]</a>
 
 ```swift
 .publisher(for: \.name) // produce a new Publisher via a type-safe key path
