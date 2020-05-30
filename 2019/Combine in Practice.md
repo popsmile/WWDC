@@ -14,12 +14,12 @@
 
 ```swift
 let trickNamePublisher = Notification.default.publisher(for. newTrickDownloaded)
-	.map { notification in
-  	return notification.userInfo["data"] as! Data
+  .map { notification in
+    return notification.userInfo["data"] as! Data
   }
-	.decode(MagicTrick.self, JSONDecoder())
-	// ✅ Ouput - MagicTrick
-	// 💣 Failure - Error
+  .decode(MagicTrick.self, JSONDecoder())
+  // ✅ Ouput - MagicTrick
+  // 💣 Failure - Error
 ```
 
 <br>
@@ -46,11 +46,11 @@ Using the nested scope for the flapMap operator, we will return, we will decode,
 
 ```swift
 .flatMap { data in
-	return Just(data)
-  	.decode(MagicTrick.self, JSONDecoder())
-    .catch {
-      return Just(MagicTrick.placeholder)
-    }
+  return Just(data)
+  .decode(MagicTrick.self, JSONDecoder())
+  .catch {
+    return Just(MagicTrick.placeholder)
+  }
 }
 ```
 
@@ -107,7 +107,7 @@ Every value received, the closure's going to get called.
 
 ```swift
 let canceller = trickNamePublisher.sink { trickName in
-	// Do something with trickName
+  // Do something with trickName
 }
 ```
 
@@ -248,16 +248,16 @@ Publishes elements only after a specified time interval elapses between events.
 
 var validatedUsername: AnyPublisher<String, Never> {
   return $username
-  	.debounce(for: 0.5, scheduler: RunLoop.main)
-  	.removeDuplicates()
-  	.flatMap { username in
-    	return Future { promise in
-      	self.usernameAvailable(username) { available in
-        	promise(.success(available ? username : nil))
-        }
-    	}         
-    }
-  	.eraseToAnyPulisher()
+    .debounce(for: 0.5, scheduler: RunLoop.main)
+    .removeDuplicates()
+    .flatMap { username in
+      return Future { promise in
+      self.usernameAvailable(username) { available in
+        promise(.success(available ? username : nil))
+      }
+    }         
+  }
+  .eraseToAnyPulisher()
 }
 ```
 
@@ -269,9 +269,9 @@ var validatedUsername: AnyPublisher<String, Never> {
 ```swift
 var validatedCredentials: AnyPublisher<(String, String)?, Never> {
   return CombineLatest(validatedUsername, validatedPassword) { username, password in
-		gurad let uname = username, let pwd = password else { return nil }
+    gurad let uname = username, let pwd = password else { return nil }
     return (uname, pwd)
-	}
+  }
   .eraseToAnyPublisher()
 }
 ```
@@ -287,9 +287,9 @@ override func viewDidLoad() {
   super.viewDidLoad()
   
   self.signupButtonStream = self.validatedCredentails
-  	.map { $0 != nil }
-  	.receive(on: RunLoop.main)
-  	.assign(to: \.isEnabled, on: signupButton)
+    .map { $0 != nil }
+    .receive(on: RunLoop.main)
+    .assign(to: \.isEnabled, on: signupButton)
 }
 ```
 
