@@ -113,3 +113,11 @@ let result = await collage.draw()
 - Continuations must be resumed **excatly once** on every path.
 - Discarding the continuation without resuming is not allowed.
 - Swift will check you work!
+
+
+
+## Summary
+
+- Async/await code is simple, easy, and safe.
+- Hundreds of new async APIs
+- Automatic async legacy API imports
