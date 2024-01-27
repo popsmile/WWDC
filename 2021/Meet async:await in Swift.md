@@ -53,7 +53,7 @@ func fetchThumnail(for id: String) async throws -> UIImage {
 }
 ```
 
-![image-20240127215110408](/Users/pony/Developments/WWDC/2021/images/image-20240127215110408.png)
+![image-20240127215110408](./images/image-20240127215110408.png)
 
 ## Async properties
 

@@ -24,7 +24,7 @@
 
 - Concurrent bindings
 
-![image-20240127221822728](/Users/pony/Developments/WWDC/2021/images/image-20240127221822728.png)
+![image-20240127221822728](./images/image-20240127221822728.png)
 
 - Structured concurrency 
   - forms a task tree.
