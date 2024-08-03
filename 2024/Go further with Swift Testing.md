@@ -136,7 +136,23 @@ extension Tag {
 
 
 
-
-
 ## Testing in parallel
 
+- in parallel by default
+- to run test serially use `@Suite("Cupcake tests", .serialized)`
+  - but, refactor first to run in parallel
+- convert completion handler to async/await with `withContinuation`
+
+```swift
+@Test func bakeCookies() async throws {
+  let cookies = await Cookie.bake(count: 10)
+  try await confirmation("Ate cookies", expectedCount: 10) { ateCookie in
+    try await eat(cookies, with: .milk) { cookie crumbs in 
+      #expect(!crumbs.in(.mink))
+      ateCookie()                                   
+    }
+  }
+}
+```
+
+- invokes a callback more than once
