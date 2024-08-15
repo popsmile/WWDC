@@ -14,3 +14,4 @@
 - [Discover Observation in SwiftUI](https://github.com/popsmile/WWDC/blob/master/2023/Discover%20Observation%20in%20SwiftUI.md)
 ## 2024
 - [Meet Swift Testing](https://github.com/popsmile/WWDC/blob/master/2024/Meet%20Swfit%20Testing.md)
+- [Go further with Swift Testing](https://github.com/popsmile/WWDC/blob/master/2024/Go%20further%20with%20Swift%20Testing.md)
